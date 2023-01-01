@@ -1,4 +1,5 @@
 #include<stdio.h>
+#include<stdlib.h>
 #include<time.h>
 #include<math.h>
 
@@ -21,13 +22,16 @@ long unsigned is_number_prime(long unsigned number){
     return TRUE;
 }
 
-void main(void){
 
-    // TIMER VARIABLES
-	clock_t start, end;
-    start = clock();
+void main(int argc, char* argv[]){
 
-    long unsigned target_prime = 601279297; // put here the number to be found
+    // check if there are enough arguments
+    if ( argc < 2 ){
+        puts("error: missing target prime number argument");
+        exit(0);
+    }
+
+    long unsigned target_prime = strtoul(argv[1], NULL, 10); // put here the number to be found
     long unsigned fir_prime = 2, sec_prime = 2; // 0 and 1 are not valid numbers
 
     // generate numbers infinitely
@@ -46,12 +50,6 @@ void main(void){
                     if ( ( fir_prime * sec_prime ) == target_prime ){
                         puts("__COMBINATION FOUND__");
                         printf("first_number:%ld\nsecond_number:%ld\ntarget_number:%ld\n", fir_prime, sec_prime, target_prime);
-
-                        // TIMER OUTPUT 
-                        double duration = ((double) ( end - start )) / CLOCKS_PER_SEC * 1000;
-                        printf("\ntime taken to find value: %.3f seconds\n", duration);
-                        end = clock(); // stop clock
-
                         exit(0); // stop code
                     } else {
                         // just for testing
