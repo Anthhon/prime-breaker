@@ -1,4 +1,6 @@
-Archive generated with bash command "./prime-generator > primenumbers.txt" 
+A list of prime numbers for testing
+
+pg - prime generator
 
 pg: 2 is a prime number
 pg: 3 is a prime number
