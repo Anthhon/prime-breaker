@@ -1,27 +1,24 @@
 #include<stdio.h>
 #include<time.h>
+#include<math.h>
 
 #define TRUE 1
 #define FALSE 0
 
 void exit(int status);
 
-long unsigned number_is_prime(long unsigned number){
+long unsigned is_number_prime(long unsigned number){
 
-    int is_prime = TRUE; // start variable
+    // basic cases
+    if (number < 2) return FALSE;
+    if (number == 2) return TRUE;
+    if (number % 2 == 0) return FALSE;
 
-    if ( number > 1 ){
-        // verify if parameter number is prime
-        for ( unsigned iter = 2 ; iter < ( number / 2 ) + 1 ; ++iter ){
-                    if ( number % iter == 0 ){
-                        is_prime = FALSE; // define as not prime
-                        break; // go to next number
-                    }
-        }
-    } else is_prime = FALSE; // return false for 0 and 1
-
-    if ( is_prime == TRUE ) return TRUE;
-    else return FALSE;
+    // using Sieve of Eratosthenes to find prime numbers more efficiently
+    for (long unsigned i = 3; i <= sqrt(number); i += 2){
+        if (number % i == 0) return FALSE;
+    }
+    return TRUE;
 }
 
 void main(void){
@@ -30,41 +27,39 @@ void main(void){
 	clock_t start, end;
     start = clock();
 
-    long unsigned target_number = 601279297; // put here the number to be found
-    long unsigned new_number = 2, sec_number = 2; // 0 and 1 are not valid numbers
+    long unsigned target_prime = 601279297; // put here the number to be found
+    long unsigned fir_prime = 2, sec_prime = 2; // 0 and 1 are not valid numbers
 
     // generate numbers infinitely
     while(TRUE){
-        if ( number_is_prime( new_number ) )
-            sec_number = 2; // restart variable
+        if ( is_number_prime( fir_prime ) )
+            sec_prime = 2; // restart variable
 
             // just for testing
-            // printf("__TESTING %ld __\n", new_number);
+            // printf("__TESTING %ld __\n", fir_prime);
 
             // test all combinations for multiplying values
             // if the two prime number multiplied are the
             // target number, return values and break
-            while ( sec_number <= new_number ){
-                if ( number_is_prime( sec_number ) ){
-                    if ( ( new_number * sec_number ) == target_number ){
+            while ( sec_prime <= fir_prime ){
+                if ( is_number_prime( sec_prime ) ){
+                    if ( ( fir_prime * sec_prime ) == target_prime ){
                         puts("__COMBINATION FOUND__");
-                        printf("first_number:%ld\nsecond_number:%ld\ntarget_number:%ld\n", new_number, sec_number, target_number);
+                        printf("first_number:%ld\nsecond_number:%ld\ntarget_number:%ld\n", fir_prime, sec_prime, target_prime);
 
                         // TIMER OUTPUT 
-                        double duration = (((double)end - start)/CLOCKS_PER_SEC) * 10000;
+                        double duration = ((double) ( end - start )) / CLOCKS_PER_SEC * 1000;
                         printf("\ntime taken to find value: %.3f seconds\n", duration);
                         end = clock(); // stop clock
 
                         exit(0); // stop code
                     } else {
                         // just for testing
-                        // printf("console: %ld did wrong, going to next\n", sec_number);
+                        // printf("console: %ld did wrong, going to next\n", sec_prime);
                     } 
                 }
-                ++sec_number;
-            }
-        
-        ++new_number; // update value for next loop iteration
+                ++sec_prime; // update value for next loop iteration
+            }   
+        ++fir_prime; // update value for next loop iteration
     }
-
 }
