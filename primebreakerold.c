@@ -37,7 +37,7 @@ void main(int argc, char* argv[]){
 
     // generate numbers infinitely
     for (fir_prime; fir_prime < target_prime; ++fir_prime){
-        if (is_number_prime(fir_prime) && pow(fir_prime, 2) > target_prime ){
+        if (is_number_prime(fir_prime)){
 				sec_prime = 2; // restart variable
 
 				// test all combinations for multiplying values
