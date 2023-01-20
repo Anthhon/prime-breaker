@@ -38,6 +38,7 @@ void main(int argc, char* argv[]){
     // generate numbers infinitely
     for (fir_prime; fir_prime < target_prime; ++fir_prime){
         if (is_number_prime(fir_prime)){
+                printf("console primeiro numero: %ld\n", fir_prime);
 				sec_prime = 2; // restart variable
 
 				// test all combinations for multiplying values
@@ -46,6 +47,8 @@ void main(int argc, char* argv[]){
 				for (sec_prime ; sec_prime <= fir_prime; ++sec_prime){
 						if (is_number_prime(sec_prime)){
 								if ((fir_prime * sec_prime) == target_prime){
+
+                                        printf("console segundo numero: %ld\n", sec_prime);
 										puts("__COMBINATION FOUND__");
 										printf("first_number:%ld\nsecond_number:%ld\ntarget_number:%ld\n", fir_prime, sec_prime, target_prime);
 										return;
