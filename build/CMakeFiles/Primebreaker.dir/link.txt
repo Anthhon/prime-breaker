@@ -1,1 +1,0 @@
-/usr/bin/cc CMakeFiles/Primebreaker.dir/primebreaker.c.o -o Primebreaker  -lm 

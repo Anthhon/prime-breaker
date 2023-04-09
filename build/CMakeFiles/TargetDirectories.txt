@@ -1,7 +1,0 @@
-/home/anth/Documents/GitHub/own-projects/prime-number-breaker/build/CMakeFiles/Primebreaker.dir
-/home/anth/Documents/GitHub/own-projects/prime-number-breaker/build/CMakeFiles/edit_cache.dir
-/home/anth/Documents/GitHub/own-projects/prime-number-breaker/build/CMakeFiles/rebuild_cache.dir
-/home/anth/Documents/GitHub/own-projects/prime-number-breaker/build/CMakeFiles/list_install_components.dir
-/home/anth/Documents/GitHub/own-projects/prime-number-breaker/build/CMakeFiles/install.dir
-/home/anth/Documents/GitHub/own-projects/prime-number-breaker/build/CMakeFiles/install/local.dir
-/home/anth/Documents/GitHub/own-projects/prime-number-breaker/build/CMakeFiles/install/strip.dir
